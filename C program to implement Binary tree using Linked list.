@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+void removethedeepestnode(struct node *root, struct node *d_node){
+    struct Queue* queue = createQueue(SIZE);
+    Enqueue(root, queue);
+    struct node *temp;
+    while(!isEmpty(queue)){
+    	temp = Dequeue(queue);
+    	if(temp==d_node){
+    		temp=NULL;
+    		free(d_node);
+    		return;
+    	}
+    	if(temp->right){
+    		if(temp->right == d_node){
+    			temp->right = NULL;
+    			free(d_node);
+    			return;
+    		}
+    		else{
+    			Enqueue(temp->right,queue);
+    		}
+    	   }
+    	   if(temp->left){
+    	   	if(temp->left == d_node){
+    	   		temp->left=NULL;
+    	   		free(d_node);
+    	   		return;
+    	   	}
+    	   	else{
+    	   		Enqueue(temp->left, queue);
+    	   	}
+    	   }
+    }
+    
+}
