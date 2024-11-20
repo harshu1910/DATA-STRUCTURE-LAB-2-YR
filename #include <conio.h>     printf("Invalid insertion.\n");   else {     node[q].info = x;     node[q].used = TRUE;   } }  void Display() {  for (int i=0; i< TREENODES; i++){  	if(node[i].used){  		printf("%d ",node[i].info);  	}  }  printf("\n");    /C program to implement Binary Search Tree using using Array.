@@ -1,0 +1,47 @@
+#include <conio.h>
+    printf("Invalid insertion.\n");
+  else {
+    node[q].info = x;
+    node[q].used = TRUE;
+  }
+}
+
+void Display() {
+ for (int i=0; i< TREENODES; i++){
+ 	if(node[i].used){
+ 		printf("%d ",node[i].info);
+ 	}
+ }
+ printf("\n");
+ 
+ // write your code here to display the elements in the binary tree.
+ 
+ 
+}
+void main() {
+  int x, y;
+  char ch = '1';
+  printf("Enter root node value:");
+  scanf("%d", &x);
+  Createtree(x);
+  while (ch != '3') {
+    printf("1.Insert\n2.Display\n3.Quit\nEnter your choice: ");
+    scanf("%d", &y);
+    switch (y) {
+      case 1:
+        printf("Enter the element to be inserted:");
+        scanf("%d", &x);
+        Insert(x);
+        break;
+      case 2:
+        Display();
+        break;
+      case 3:
+        exit(0);
+        break;
+      default:
+        printf("Out of Range...!\n");
+        break;
+    }
+  }
+}
