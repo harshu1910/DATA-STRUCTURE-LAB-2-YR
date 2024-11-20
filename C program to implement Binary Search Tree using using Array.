@@ -1,0 +1,26 @@
+int i =0;
+	while(i<TREENODES){
+		if(!node[i].used){
+		node[i].info=x;
+		node[i].used=TRUE;
+		return;
+		}
+		else if (x==node[i].info){
+		printf("%d is a duplicate number\n");
+		return;
+		}
+		else if(x<node[i].info){
+			i=2*i+1;
+		}
+		else{
+			i=2*i+2;
+		}
+	}
+	printf("No more space for new node\n");
+	for (int i=0; i< TREENODES; i++){
+ 	if(node[i].used){
+ 		printf("%d ",node[i].info);
+ 	}
+ }
+ printf("\n");
+ 
